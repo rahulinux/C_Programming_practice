@@ -186,7 +186,75 @@ integer varialbe `y`
 
 ***
 
+# Array
 
+ - Declaring array : 
+     -  `type array_name[size_of_array]`
+	 
+ - Example : 
+     - `int ia[5];` 
+		- this declare the arrays of integer with size of 5 
+	 - `ia[0] = 1;`
+		- the first element always start from zero, this assign value `1` to 
+		  the first element of the arrays
+	 - `int *ip = ia;`
+		- this declares the integer pointer and assigns the address of the arrays 
+		- we don't need to use `&` to assign arrays address 
+	 - `*ip = 2;`
+		- this assign the value 2 to first element of array i.e `ia[0]`
+	 - `++ip;`
+		- we can increment pointer and it will point to second element of the array 
+		- so after `++ip;` and `*ip = 3;` this will assign value 3 in third element of array
+	 - `*(++ip) = 4;`
+		- this is common technique in C. here will increment the pointer and using it same time. 
+		- it's an short-cut of previous two steps 
+		
+
+ - Example 
+ 
+	- `char s[] = { 's','t','r','i','n','g', 0 };`
+	    - We don't have define size of array  i.e `s[]` 
+		- Traditional string in C and C++ uses null terminator(i.e `0` ) to indicate the end of the string . 
+	-  `char s[] = "string"; `
+		- also we can define array as above 
+		
+ - Example loop through array 
+ 
+````
+#include <stdio.h>
+
+int main(){
+
+	char s[] = "string";
+	int i;
+	for ( i=0; s[i] != 0; ++i ) {
+		printf("this is char %s\n", s[i] );
+	}
+	return 0;
+}
+
+````
+		
+ - Example loop through array using array pointer 
+ 
+````
+#include <stdio.h>
+
+int main(){
+
+	char s[] = "string";
+	char *cp = s;
+	for ( *cp; *cp; ++cp ) {
+	
+		printf("this is char %c\n", *cp );
+	
+	}
+	return 0;
+}
+
+```` 
+	
+	 
 
 
 
