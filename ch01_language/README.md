@@ -144,6 +144,43 @@ User input for console base application `fgets()` function commonly used.
     - An array is a block of contiguous memory that has been allocated with a specific type. The name of the array contains the value of the starting spot of the array. When you add 1, that takes you to the second spot. This allows you to write loops that increment a pointer that slides down the array without having an explicit counter for use in accessing the array.
     - Pointers are useful where you require high performance and/or compact memory footprint.
 
+### To understand Pointers, we first need to understand how variables works
+
+when you declare variable is typed and named location in memory 
+
+Example : `int x;`
+
+It's declare variable and associate with name `x` and memory is allocated of size of integer data type 
+
+`x = 1;`  
+
+then we place value 1 in memory location associate with the integer variable `x`
+
+`int y = x;`
+
+this is both declaration and assignment, memory is allocated of size of int and 
+value from variable `x` copied into the variable name `y` .
+
+Now `y` contains separate integer in the separate memory location of the same value. 
+
+
+C syntax gives to the ability to create a variable that is pointer to the value.
+
+`int *ip;`
+
+thsi is pointer declaration the variable `ip`  is of the type pointer to int,
+here is memory is allocated size of pointer and type int, it's refer to intenger pointer. 
+
+`ip = &x;`
+
+this is address of access placed in pointer variable named `ip` , the `&` is called reference operator.
+so this statement assign the address of `x` to integer pointer `ip`. 
+integer pointer `ip` now points to integer variable `x` 
+
+`int y = *ip`
+this statement copy the value pointed by `ip` which currently points to the integer varialbe `x` to the 
+integer varialbe `y`
+
 ***
 
 
