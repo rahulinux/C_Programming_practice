@@ -134,8 +134,17 @@ User input for console base application `fgets()` function commonly used.
        instead of `gets()`
 
 ***
+# Pointers 
 
+ - Definition: 
+    - A pointer is a variable containing the address of another variable
+ - Why use ?
+    - Pointers allow you to refer to the same space in memory from multiple locations. This means that you can update memory in one location and the change can be seen from another location in your program. You will also save space by being able to share components in your data structures.
+    - You should use pointers any place where you need to obtain and pass around the address to a specific spot in memory. You can also use pointers to navigate arrays:
+    - An array is a block of contiguous memory that has been allocated with a specific type. The name of the array contains the value of the starting spot of the array. When you add 1, that takes you to the second spot. This allows you to write loops that increment a pointer that slides down the array without having an explicit counter for use in accessing the array.
+    - Pointers are useful where you require high performance and/or compact memory footprint.
 
+***
 
 
 
