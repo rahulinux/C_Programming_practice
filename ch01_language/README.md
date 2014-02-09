@@ -132,6 +132,9 @@ User input for console base application `fgets()` function commonly used.
   - Information :
      - Previously mostly uses `gets()`, but not it's old, use `fgets()`
        instead of `gets()`
+     - There is another function called `scanf()` and the difference is 
+        - `fgets()` can read from any open file, but `scanf()` only reads standard input.
+        - `fgets()` reads 'a line of text' from a file; `scanf()` can be used for that but also handles conversions from string to built in numeric types.
 
 ***
 # Pointers 
@@ -182,6 +185,9 @@ this statement copy the value pointed by `ip` which currently points to the inte
 integer varialbe `y`
 
 ***
+
+
+
 
 
 
