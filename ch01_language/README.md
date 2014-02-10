@@ -253,7 +253,491 @@ int main(){
 }
 
 ```` 
+
+# switch statement 
+
+C Provide multi-way switch control for branching conditional operator 
+
+Example: 
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int foo = 3;
 	
+	switch(foo) {
+	
+		case 1:
+			puts("one");
+			break;
+		case 2:
+			puts("two");
+			break;
+		case 3:
+			puts("three");
+			break;
+		default:
+			puts("default");
+			break;
+	}
+	return 0;
+
+}
+````
+
+ - it's required `break` for end of `case`
+ - case clouses has to be constant, it will not accept `variable`
+ - best programming practice that use integer constant in C++
+
+following exampel with intenger constant 
+
+````
+#include <stdio.h>
+
+// constant in C, this are macros 
+#define ONE (1) 
+#define TWO (2) 
+#define THREE (3) 
+
+int main(){
+
+	int foo = 3;
+	
+	switch(foo) {
+	
+		case ONE:
+			puts("one");
+			break;
+		case TWO:
+			puts("two");
+			break;
+		case THREE:
+			puts("three");
+			break;
+		default:
+			puts("default");
+			break;
+	}
+	return 0;
+}
+
+````
+
+Also we can use constant in C, but it's not works with `swith` statement 
+it's like readonly varialbes 
+
+````
+#include <stdio.h>
+
+const int ONE = 1;
+const int TWO = 2;
+const int THREE = 3;
+
+int main(){
+
+        int foo = 32;
+
+        if(foo == ONE){
+                printf("foo is %d\n", ONE );
+        } else if(foo == TWO ){
+
+                printf("foo is %d\n", TWO );
+        } else if( foo == THREE ) {
+
+                printf("foo is %d\n", THREE);
+        } else {
+                printf("unknown\n");
+        }
+
+        return 0;
+}
+````
+
+***
+# for loop
+
+Example:
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int i;
+	for ( i=0; i<5; ++i){
+	
+		printf("i is %d\n", i);
+	
+	}
+	
+	return 0;
+
+}
+````
+Output 
+
+> i is 0
+
+> i is 1
+
+> i is 2
+
+> i is 3
+
+> i is 4
+
+
+
+ - Information 
+	- In C98 and old we have declare variable first, 
+	- in latest version of C (C11 ) we can use `for (int i=0;i<5;++i)`
+
+
+Example: loop through array using pointer 
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int arr[] =  { 1, 2, 3, 4, 5, 0 };
+	int *ip  = arr;
+	for (*ip; *ip != 0 ; ++ip) {
+	
+		printf("value is %d\n", *ip );
+	}
+	
+	return 0;
+
+}
+````
+Output 
+
+>value is 1
+
+>value is 2
+
+>value is 3
+
+>value is 4
+
+>value is 5
+
+***
+# while and do while loop
+
+The basic looping control in C is while loop,
+it's test condition at top of the loop and also version that test bottom of the loop
+
+Example: test condtion top of the loop
+
+````
+#include <stdio.h>
+int main(){
+
+	int x = 5;
+	
+	while(--x) {	
+	
+		printf("x is %d\n", x );
+	}
+
+	return 0;
+}
+
+
+````
+output 
+
+> x is 4
+
+> x is 3
+
+> x is 2
+
+> x is 1
+
+
+We can also use condition 
+
+  - `while(x)` means if x is zero means false this it will end the loop
+  - `while(x>0)` this is decrement x first then first print 4 then to 1
+
+  
+Example: test condtion bottom of the loop
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int x = 5;
+	
+	do {
+		printf("x ix %d\n",x );
+	} while(--x);
+
+}
+````
+Output 
+>  x ix 5
+
+>  x ix 4
+
+>  x ix 3
+
+>  x ix 2
+
+>  x ix 1
+
+
+see and compare the output of both loop, in first `while` loop it's first decrement x then print it's value ie. 4
+and in second `do while` loop it's first print value of x ie. 5 then run condition ie `--x`. 
+`do` while very rearly used but it's better to understand them
+
+
+***
+# Conditional Operator 
+
+there is no boolen operator in C, C++ have boolen operator 
+so int or char with value `0` means false and `1` means true
+
+Example : if else
+````
+#include <stdio.h>
+
+int main(){
+
+	int a = 1;	// true
+	int b = 0;	// false
+	
+	if(a) {
+		puts("this is true");
+	} else {
+		puts("this is not true");
+	}
+	
+	return 0;
+
+}
+
+````
+
+
+Example : else if
+
+C does not have `elseif`, but we can use `else if` that's works exactly the same
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int a = 0;
+	int b = 0;
+	
+	if(a) {
+	
+		puts("this is true");
+	
+	} else if(b) {
+	
+		puts("the other is true");
+	
+	} else {
+	
+		puts("nothing is true");
+	
+	}
+
+	return 0;
+}
+````
+#### Ternery operator 
+
+C also has another way of doing conditional and this is called ternery operator 
+
+Example : `type var = ( condition ) ? iftrue_set_this : else_set_this`
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int a = 5;
+	int b = 0;
+	
+	int c = (a == 5) ? 7 : 9;  // if a true then set 7 to var c 
+	
+	printf("c is %d\n", c );	// output "c is 7"
+
+	return 0;
+}
+````
+
+***
+# functions
+
+function should return value, if you don't want to return value then 
+you have to use `void`
+
+Example:
+
+````
+#include <stdio.h>
+
+void func(){
+
+	printf("This is fucn\n");
+
+}
+
+int main(){
+
+	printf("this is test function\n");
+	func();
+	
+	return 0;
+
+}
+````
+
+Example: function with parameter 
+
+````
+#include <stdio.h>
+
+int add(int x, int y){
+
+	return x + y;
+}
+
+int main(){
+
+	printf("5 + 78 is %d\n", add(5,78));
+	
+	// this can be writen as 
+	// a = add(5,78);
+	// printf("5 + 78 is %d\n",a);
+	
+	return 0;
+
+}
+
+````
+***
+# Branching goto, break, continue 
+
+goto
+ - it's unconditional branch 
+ - where the execution is start goto, it will skip until the lable 
+
+Example: goto
+
+````
+#include <stdio.h>
+
+int main(){
+
+	printf("Before the goto\n");
+	goto target;
+	printf("After goto\n"); // this part will skipp
+	target:
+		printf("After the target\n");
+	return 0;
+
+}
+
+````
+Output 
+
+> Before the goto
+> After the target
+
+
+break,continue used in loop
+break also use in `switch` statement 
+
+break is for stop the loop 
+
+Example:
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int i;
+	for (i=0; i<10; ++i) {
+	
+		if( i == 5) break;
+
+		printf("i is %d\n", i );
+	
+	}
+
+	return 0;
+}
+````
+
+Output :
+
+> i is 0
+
+> i is 1
+
+> i is 2
+
+> i is 3
+
+> i is 4
+
+
+Example : continue 
+
+it's use for skiping the part 
+
+````
+#include <stdio.h>
+
+int main(){
+
+	int i;
+	for (i=0; i<10; ++i) {
+	
+		if( i == 5) continue;
+
+		printf("i is %d\n", i );
+	
+	}
+
+	return 0;
+}
+````
+
+Output
+
+> i is 0
+
+> i is 1
+
+> i is 2
+
+> i is 3
+
+> i is 4
+
+> i is 6
+
+> i is 7
+
+> i is 8
+
+> i is 9
+
+***
 	 
 
 
